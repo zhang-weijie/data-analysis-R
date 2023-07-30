@@ -1,6 +1,6 @@
 # R script by Weijie
 # The code here is only partly referenced in the paper
-df_mh <- read.csv("C:/developmentTools/Java/2.java_advanced/rstudio_workspace/Project/Mental_health_service_availability_facilities.csv")
+df_mh <- read.csv("./Mental_health_service_availability_facilities.csv")
 # Note that the values in the column “year” are different, which may affect the analysis; we need to observe if the span of years is large. If it's small, we can ignore it.
 # Observe extreme values in the years using built-in functions df[which.min(df$colname),] and df[which.max(df$colname),].
 yearMin = df[which.min(df_mh$Year),] # yearMin is 2013
@@ -128,7 +128,7 @@ summary(weighted_df_mh$Score)
 boxplot(weighted_df_mh$Score)
 
 # Import another dataframe which stores the suicide rate of the population of each age group (grouped by 10 years old) in 2016 in countries and regions of the world.
-df_sr <- read.csv("C:/developmentTools/Java/2.java_advanced/rstudio_workspace/Project/suicide_rate.csv")
+df_sr <- read.csv("./suicide_rate.csv")
 
 # Remove gender-specific data to consider both sexes only
 df_sr <- df_sr[df_sr$X.1 == ' Both sexes',]
@@ -196,7 +196,7 @@ plot(merged_df_mh_sr$Score.x, merged_df_mh_sr$Score.y, main = "MH_SR", xlab = "M
 # Since the absolute value of the correlation is very small, there is no obvious linear distribution in the scatter plot.
 
 # Now, let's examine the relationship between GDP per capita and suicide rates
-df_gpc <- read.csv("C:/developmentTools/Java/2.java_advanced/rstudio_workspace/Project/gdpPerCapita.csv")
+df_gpc <- read.csv("./gdpPerCapita.csv")
 # Since the GDP per capita table contains data for multiple years, we need to filter and extract the columns "Country.Name" and "X2016".
 df_gpc <- df_gpc[, c("Country.Name", "X2016")]
 
